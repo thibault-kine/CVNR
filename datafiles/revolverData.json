@@ -1,0 +1,13 @@
+{
+    "_id": 0,
+    "_name": "Revolver",
+    "bulletObj": "obj_Bullet1",
+    "weaponObj": "obj_Revolver",
+    "reloadTime": 1.5,
+    "timeBetweenShots": 0.4,
+    "spray": 10,
+    "damage": 5,
+    "bulletsPerShot": 1,
+    "magSize": 6,
+    "maxAmmo": 18
+}

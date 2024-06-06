@@ -1,0 +1,13 @@
+{
+    "_id": 1,
+    "_name": "Shotgun",
+    "bulletObj": "obj_Bullet1",
+    "weaponObj": "obj_Shotgun",
+    "reloadTime": 3,
+    "timeBetweenShots": 0.9,
+    "spray": 15,
+    "damage": 2,
+    "bulletsPerShot": 4,
+    "magSize": 2,
+    "maxAmmo": 24
+}
