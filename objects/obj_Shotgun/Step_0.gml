@@ -14,9 +14,17 @@ if (mouse_x < x) {
 image_angle = direction;
 
 if(mouse_check_button_pressed(mb_left)) {
-	if(data.currentInMag >= data.bulletsPerShot && data.currentInMag != 0) {
-		data.currentInMag -= data.bulletsPerShot;
-		instance_create_layer(x, y, "Instances", data.bulletObj);
+	if(data.currentInMag != 0) {
+		print("okay");
+		data.currentInMag--;
+		repeat(irandom_range(2, 3)) {
+			var newBullet = instance_create_layer(x, y, "Instances", data.bulletObj);
+			newBullet.direction = point_direction(
+				newBullet.x, newBullet.y, 
+				random_range(mouse_x - 25, mouse_x + 25), 
+				random_range(mouse_y - 25, mouse_y + 25)
+			);
+		}
 	}
 }
 
