@@ -1,2 +1,4 @@
-/// @description Insérez la description ici
-// Vous pouvez écrire votre code dans cet éditeur
+if(instance_exists(other)) {
+	other.hp -= damage;
+	instance_destroy();
+}

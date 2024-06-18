@@ -13,21 +13,34 @@ if (mouse_x < x) {
 
 image_angle = direction;
 
-if(mouse_check_button_pressed(mb_left)) {
-	if(data.currentInMag != 0) {
-		print("okay");
-		data.currentInMag--;
-		repeat(irandom_range(2, 3)) {
-			var newBullet = instance_create_layer(x, y, "Instances", data.bulletObj);
-			newBullet.direction = point_direction(
-				newBullet.x, newBullet.y, 
-				random_range(mouse_x - 25, mouse_x + 25), 
-				random_range(mouse_y - 25, mouse_y + 25)
-			);
-		}
+if(timeUntilNextShot > 0) {
+	timeUntilNextShot--;
+}
+
+if(data.isReloading) {
+	data.reloadDuration--;
+	if(data.reloadDuration <= 0) {
+		data.finishReload();
 	}
 }
 
-if(keyboard_check_pressed(ord(global.keyBindings.reloadKey))) {
-	data.reload();	
+// Tirer si le bouton gauche de la souris est pressé et que l'arme est prête à tirer
+if (mouse_check_button_pressed(mb_left) && timeUntilNextShot <= 0 && !data.isReloading) {
+    if (data.currentInMag != 0) {
+        data.currentInMag--;
+        timeUntilNextShot = data.timeBetweenShots; // Réinitialiser le temps entre les tirs
+        repeat(irandom_range(2, 3)) {
+            var newBullet = instance_create_layer(x, y, "Instances", data.bulletObj);
+            newBullet.direction = point_direction(
+                newBullet.x, newBullet.y, 
+                random_range(mouse_x - 25, mouse_x + 25), 
+                random_range(mouse_y - 25, mouse_y + 25)
+            );
+        }
+    }
+}
+
+// Recharger si la touche de rechargement est pressée
+if (keyboard_check_pressed(ord(global.keyBindings.reloadKey))) {
+    data.reload(); // Commencer le rechargement
 }

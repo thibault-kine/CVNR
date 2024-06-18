@@ -13,3 +13,4 @@ draw_text(
 	getPercentage(5, room_width), getPercentage(97, room_height),
 	maxAmmoText
 );
+

@@ -13,13 +13,27 @@ if (mouse_x < x) {
 
 image_angle = direction;
 
-if(mouse_check_button_pressed(mb_left)) {
-	if(data.currentInMag >= data.bulletsPerShot && data.currentInMag != 0) {
-		data.currentInMag -= data.bulletsPerShot;
-		instance_create_layer(x, y, "Instances", data.bulletObj);
+if(timeUntilNextShot > 0) {
+	timeUntilNextShot--;
+}
+
+if(data.isReloading) {
+	data.reloadDuration--;
+	if(data.reloadDuration <= 0) {
+		data.finishReload();
 	}
 }
 
-if(keyboard_check_pressed(ord(global.keyBindings.reloadKey))) {
-	data.reload();	
+// Tirer si le bouton gauche de la souris est pressé et que l'arme est prête à tirer
+if (mouse_check_button_pressed(mb_left) && timeUntilNextShot <= 0 && !data.isReloading) {
+    if (data.currentInMag != 0) {
+        data.currentInMag--;
+        timeUntilNextShot = data.timeBetweenShots; // Réinitialiser le temps entre les tirs
+        instance_create_layer(x, y, "Instances", data.bulletObj);
+    }
+}
+
+// Recharger si la touche de rechargement est pressée
+if (keyboard_check_pressed(ord(global.keyBindings.reloadKey))) {
+    data.reload(); // Commencer le rechargement
 }

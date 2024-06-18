@@ -9,6 +9,8 @@ function Weapon(data) constructor {
 	weaponObj		 = data.weaponObj;
 	bulletObj		 = data.bulletObj;
 	
+	canShoot		 = true;
+	
 	reloadTime		 = data.reloadTime;
 	timeBetweenShots = data.timeBetweenShots;
 	spray			 = data.spray;
@@ -22,13 +24,27 @@ function Weapon(data) constructor {
 	
 	damage			 = data.damage;
 	
+	isReloading		 = false;
+	reloadDuration   = 0;
+	
+	
 	reload = function() {
-		if(currentInMag < magSize) {
+		if(currentInMag < magSize and !isReloading) {
+			isReloading = true;
+			reloadDuration = reloadTime;
+		}
+	}
+	
+	finishReload = function() {
+		if(isReloading) {
 			var diff = magSize - currentInMag;
-			if(currentAmmo <= diff) 
+			if(currentAmmo <= diff) {
 				diff = currentAmmo;
+			}
 			currentAmmo -= diff;
 			currentInMag += diff;
+			isReloading = false;
+			reloadDuration = 0;
 		}
 	}
 }

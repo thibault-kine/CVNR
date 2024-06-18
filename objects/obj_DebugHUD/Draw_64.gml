@@ -4,7 +4,8 @@ var _debugText =
 	"moveSpeed: " + string(obj_Player.moveSpeed) + "\n" +
 	"health: " + string(health) + "\n" +
 	"currentWpn: " + obj_WeaponManager.currWpn.weaponName + "\n" +
-	"mousePos: (" + string(mouse_x) + ", " + string(mouse_y) + ")\n";
+	"mousePos: (" + string(mouse_x) + ", " + string(mouse_y) + ")\n" +
+	"reloading: " + string(obj_WeaponManager.currWpn.reloadDuration) + " / " + string(obj_WeaponManager.currWpn.reloadTime) + "\n";
 	
 	
 draw_text_color(
