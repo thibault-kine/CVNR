@@ -1,4 +1,4 @@
-# 👮‍♂️ *COPS vs. Ninjas* 🐱‍👤
+# 👮‍♂️ *COPS vs. NINJAS* 🐱‍👤
 
 ### A little bit of history: Where does this game comes from?
 Back in high school, I decided to create a side-project on GameMakerStudio 2 ; a game engine which I only got used to at the time. It was a mess, and the code was disgusting, but it did work, and turned out to be pretty fun!
