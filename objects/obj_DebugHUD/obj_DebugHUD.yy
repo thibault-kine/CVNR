@@ -8,8 +8,8 @@
   "name":"obj_DebugHUD",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objets",
-    "path":"folders/Objets.yy",
+    "name":"Managers",
+    "path":"folders/Objets/Managers.yy",
   },
   "parentObjectId":null,
   "persistent":true,

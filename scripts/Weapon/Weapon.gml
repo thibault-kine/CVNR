@@ -1,33 +1,35 @@
 /// @param {Struct} data
 function Weapon(data) constructor {
 	
-	unlocked		 = data.unlocked;
+	unlocked		 = data.unlocked;			// if the player has the weapon in inventory
+
+	weaponId		 = data._id;				// weapon's ID
+	weaponName		 = data._name;				// weapon's name
 	
-	weaponId		 = data._id;
-	weaponName		 = data._name;
+	weaponObj		 = data.weaponObj;			// the weapon's object (prefab)
+	bulletObj		 = data.bulletObj;			// the bullet's object (prefab, for behavior)
 	
-	weaponObj		 = data.weaponObj;
-	bulletObj		 = data.bulletObj;
+	canShoot		 = true;					// if the weapon can shoot (isn't reloading, etc)
 	
-	canShoot		 = true;
+	reloadTime		 = data.reloadTime;			// the time it takes to reload
+	timeBetweenShots = data.timeBetweenShots;	// the time between two shots
+	spray			 = data.spray;				// the bullet spray angle
 	
-	reloadTime		 = data.reloadTime;
-	timeBetweenShots = data.timeBetweenShots;
-	spray			 = data.spray;
+	bulletsPerShot	 = data.bulletsPerShot;		// how many bullets per shot
+	magSize			 = data.magSize;			// how many shots can be fired (shots < mag)
+	maxAmmo			 = data.maxAmmo;			// how many mags can be filled (mags < ammo)
 	
-	bulletsPerShot	 = data.bulletsPerShot;
-	magSize			 = data.magSize;
-	maxAmmo			 = data.maxAmmo;
+	currentInMag	 = data.magSize ?? 0;		// how many in magazine
+	currentAmmo		 = data.maxAmmo ?? 0;		// how many in total
 	
-	currentInMag	 = data.magSize ?? 0;
-	currentAmmo		 = data.maxAmmo ?? 0;
+	damage			 = data.damage;				// weapon damage. will be passed to the bullets
 	
-	damage			 = data.damage;
-	
-	isReloading		 = false;
-	reloadDuration   = 0;
+	isReloading		 = false;					// if the player is reloading this weapon
+	reloadDuration   = 0;						// delta time for reloadTime
 	
 	
+	/// @func reload()
+	/// @desc Reloads the weapon
 	reload = function() {
 		if(currentInMag < magSize and !isReloading) {
 			isReloading = true;
@@ -35,6 +37,8 @@ function Weapon(data) constructor {
 		}
 	}
 	
+	/// @func finishReload()
+	/// @desc Ends the reload and resets the variables
 	finishReload = function() {
 		if(isReloading) {
 			var diff = magSize - currentInMag;

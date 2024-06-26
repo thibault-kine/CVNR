@@ -1,4 +1,6 @@
-/// @param {String}			text
+/// @func	showDialog(text)
+/// @desc	Displays a textbox at the bottom of the screen, which displays @arg[0]
+/// @arg	{String} text The message you want to display. Defaults to "Hello World"
 function showDialog(text = "Hello World") {
 	var _boxHeight = 150;
 	var _boxY = room_height - _boxHeight;

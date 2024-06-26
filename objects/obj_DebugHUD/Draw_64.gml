@@ -3,9 +3,7 @@ var _debugText =
 	"y: " + string(obj_Player.y) + "\n" + 
 	"moveSpeed: " + string(obj_Player.moveSpeed) + "\n" +
 	"health: " + string(health) + "\n" +
-	"currentWpn: " + obj_WeaponManager.currWpn.weaponName + "\n" +
-	"mousePos: (" + string(mouse_x) + ", " + string(mouse_y) + ")\n" +
-	"reloading: " + string(obj_WeaponManager.currWpn.reloadDuration) + " / " + string(obj_WeaponManager.currWpn.reloadTime) + "\n";
+	"obj_BulletPickup spawning in: " + string(alarm_get(0)) + "\n";
 	
 	
 draw_text_color(

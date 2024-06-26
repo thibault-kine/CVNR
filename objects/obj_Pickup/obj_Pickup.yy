@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_WeaponManager",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_Pickup",
+  "eventList":[],
   "managed":true,
-  "name":"obj_WeaponManager",
+  "name":"obj_Pickup",
   "overriddenProperties":[],
   "parent":{
-    "name":"Managers",
-    "path":"folders/Objets/Managers.yy",
+    "name":"Items",
+    "path":"folders/Objets/Items.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -4,5 +4,7 @@ global.keyBindings = {
 	reloadKey: "R",
 };
 
+global.mpGrid = 0;
 
-global.projectDir = "C:\\Users\\chezt\\Documents\\GameMakerStudio2\\CVNR\\";
+// TODO: find out why this alarm is disabled
+alarm_set(0, 120);

@@ -1,3 +1,5 @@
+/// @func getWASDInput()
+/// @desc Reads the inputs for a WASD keyboard
 function getWASDInput() {
 	
 	var _xInput = keyboard_check(ord("D")) - keyboard_check(ord("A"));
@@ -15,6 +17,9 @@ function getWASDInput() {
 	};
 }
 
+
+/// @func getZQSDInput()
+/// @desc Reads the inputs for a ZQSD keyboard
 function getZQSDInput() {
 	var _xInput = keyboard_check(ord("D")) - keyboard_check(ord("Q"));
 	var _yInput = keyboard_check(ord("S")) - keyboard_check(ord("Z"));
